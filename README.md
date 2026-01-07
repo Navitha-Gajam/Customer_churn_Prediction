@@ -36,6 +36,7 @@ Customer retention strategies are required to reduce churn rate.
 <img width="940" height="705" alt="image" src="https://github.com/user-attachments/assets/b91849fe-d7bd-4fc5-88fa-23057d4fc363" />
 
 
+
  Contract Type vs Churn
 Visualization: Bar Chart (Crosstab)
 
@@ -52,6 +53,7 @@ Long-term contracts help improve customer retention.
 <img width="640" height="480" alt="contract vs churn" src="https://github.com/user-attachments/assets/db2bc9c7-9b34-42d5-bb4a-f4ea39ccb452" />
 
 
+
  Gender vs Churn
 Visualization: Bar Chart
 
@@ -65,6 +67,7 @@ Business Meaning:
 
 Churn prevention strategies should focus on service factors rather than gender.
 <img width="640" height="480" alt="gender_vs_churn" src="https://github.com/user-attachments/assets/dd004052-1153-4d7b-97de-db7b57289238" />
+
 
 
 Internet Service vs Gender
@@ -83,6 +86,7 @@ Internet service adoption is not gender-biased.
 <img width="640" height="480" alt="internet services vs gender" src="https://github.com/user-attachments/assets/6f38b184-d1fa-4965-aaa8-89d158e5b5c9" />
 
 
+
  Monthly Charges vs Churn
 Visualization: Histogram
 
@@ -98,6 +102,7 @@ High pricing may be a major reason for customer churn.
 
 <img width="640" height="480" alt="monthly_charges vs churn" src="https://github.com/user-attachments/assets/119839d5-3921-4c65-bc55-94310f4fa8d8" />
 
+
 Churn Among Senior Citizens by Gender
 Visualization: Bar Chart
 
@@ -112,6 +117,7 @@ Business Meaning:
 Special retention offers may be needed for senior customers.
 
 <img width="640" height="480" alt="senior gender vs churn" src="https://github.com/user-attachments/assets/9dc4de91-71b0-4239-b7a9-80fc2d782a9a" />
+
 
  Tenure vs Churn
 Visualization: Histogram
