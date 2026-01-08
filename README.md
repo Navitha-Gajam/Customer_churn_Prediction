@@ -20,7 +20,7 @@ Each row represents a customer and includes:
 
  Visualizations & Insights
 
- Customer Churn Distribution
+1. Customer Churn Distribution
 Visualization: Bar Chart
 
 Insight:
@@ -37,7 +37,7 @@ Customer retention strategies are required to reduce churn rate.
 
 
 
- Contract Type vs Churn
+ 2.Contract Type vs Churn
 Visualization: Bar Chart (Crosstab)
 
 Insight:
@@ -54,7 +54,7 @@ Long-term contracts help improve customer retention.
 
 
 
- Gender vs Churn
+3. Gender vs Churn
 Visualization: Bar Chart
 
 Insight:
@@ -70,7 +70,7 @@ Churn prevention strategies should focus on service factors rather than gender.
 
 
 
-Internet Service vs Gender
+4.Internet Service vs Gender
 Visualization: Bar Chart (Crosstab)
 
 Insight:
@@ -87,7 +87,7 @@ Internet service adoption is not gender-biased.
 
 
 
- Monthly Charges vs Churn
+5. Monthly Charges vs Churn
 Visualization: Histogram
 
 Insight:
@@ -103,7 +103,7 @@ High pricing may be a major reason for customer churn.
 <img width="640" height="480" alt="monthly_charges vs churn" src="https://github.com/user-attachments/assets/119839d5-3921-4c65-bc55-94310f4fa8d8" />
 
 
-Churn Among Senior Citizens by Gender
+6.Churn Among Senior Citizens by Gender
 Visualization: Bar Chart
 
 Insight:
@@ -119,7 +119,7 @@ Special retention offers may be needed for senior customers.
 <img width="640" height="480" alt="senior gender vs churn" src="https://github.com/user-attachments/assets/9dc4de91-71b0-4239-b7a9-80fc2d782a9a" />
 
 
- Tenure vs Churn
+7. Tenure vs Churn
 Visualization: Histogram
 
 Insight:
@@ -138,7 +138,7 @@ The first few months are critical for customer retention.
 
 
 
-TelecomPartner vs Churn Visualization: Grouped Bar Chart
+8.TelecomPartner vs Churn Visualization: Grouped Bar Chart
 
 Insight:
 
@@ -162,7 +162,7 @@ The provider a customer uses is associated with small but actionable differences
 
 
 
-Payment Method vs Churn Visualization: Stacked Bar Chart
+9.Payment Method vs Churn Visualization: Stacked Bar Chart
 
 Insight:
 
