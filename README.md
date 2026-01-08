@@ -162,6 +162,27 @@ The provider a customer uses is associated with small but actionable differences
 
 
 
+Payment Method vs Churn Visualization: Stacked Bar Chart
+
+Insight:
+
+• Electronic check customers show the highest churn rate (~45%) — a large proportion of customers using this method leave the service.
+
+• Mailed check users have a moderate churn rate (~19%) — lower than electronic check but higher than automatic methods.
+
+• Bank transfer (automatic) and credit card (automatic) users exhibit the lowest churn rates (~15–16%) — indicating stronger customer retention.
+
+• Although total customer counts are similar across payment methods, churn likelihood varies significantly by payment type.
+
+Business Meaning:
+
+Payment method is a strong behavioral indicator of churn. Customers using manual payment methods, especially electronic checks, are more likely to churn. Encouraging migration to automatic payment methods (bank transfer or credit card) can materially reduce churn. Retention campaigns should prioritize electronic check users, as even small improvements in this group can yield meaningful reductions in overall churn.
+
+
+<img width="600" height="400" alt="paymentmethod vs churn" src="https://github.com/user-attachments/assets/8762488d-4f89-4f3c-830a-80dbb8cce9f2" />
+
+
+
 
 
 
