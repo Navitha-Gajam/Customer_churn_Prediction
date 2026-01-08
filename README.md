@@ -138,6 +138,30 @@ The first few months are critical for customer retention.
 
 
 
+TelecomPartner vs Churn Visualization: Grouped Bar Chart
+
+Insight:
+
+• Jio shows the highest churn rate (~27.3%) — proportionally more customers are leaving.
+
+• BSNL has the lowest churn rate (~25.2%) — relatively more stable customers.
+
+• Vodafone has the largest absolute number of churned customers (490) due to its bigger customer base.
+
+• Differences are modest (~2 percentage points) — verify statistical significance before strong conclusions.
+
+
+Business Meaning:
+
+
+The provider a customer uses is associated with small but actionable differences in churn. Prioritize root-cause analysis for Jio to reduce its churn rate, and target Vodafone for volume-based interventions (even modest rate improvements there yield larger customer retention gains).
+
+
+
+<img width="640" height="480" alt="telecom_partner_vs_churn" src="https://github.com/user-attachments/assets/f4d7a58a-de39-4b2d-9669-62b232382fde" />
+
+
+
 
 
 
