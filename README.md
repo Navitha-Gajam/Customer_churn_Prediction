@@ -33,7 +33,7 @@ Business Meaning:
 
 Customer retention strategies are required to reduce churn rate.
 
-<img width="940" height="705" alt="image" src="https://github.com/user-attachments/assets/b91849fe-d7bd-4fc5-88fa-23057d4fc363" />
+<img width="750" height="540" alt="image" src="https://github.com/user-attachments/assets/b91849fe-d7bd-4fc5-88fa-23057d4fc363" />
 
 
 
