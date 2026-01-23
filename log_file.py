@@ -3,8 +3,12 @@ import logging
 
 
 def setup_logging(script_name):
-    logger = logging.getLogger('CustomerChurn')
+    logger = logging.getLogger(script_name)
     logger.setLevel(logging.DEBUG)
+
+    # 🚨 Prevent duplicate handlers
+    if logger.handlers:
+        return logger
 
     # Create a file handler for the script
     handler = logging.FileHandler(f'C:\\Users\\AUTODESIGN\\Desktop\\DataScience Projects\\CustomerChurnPrediction\\logs\\{script_name}.log',mode='w')
