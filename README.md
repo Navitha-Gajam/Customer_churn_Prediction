@@ -1,205 +1,237 @@
-# Customer_churn_Prediction
-Project Overview
-The focuses is on analysing customer churn using the Telco Customer Churn dataset. From this EDA we understand customer behaviour patterns and identify factors that influence churn using Matplotlib visualizations.
+📌 Project Overview
 
+Customer churn is a critical problem for telecom companies. This project builds a robust, automated machine learning pipeline to analyze, preprocess, model, and predict customer churn using the Telco Customer Churn dataset.
 
-Dataset Source: https://www.kaggle.com/datasets/blastchar/telco-customer-churn
+The pipeline intelligently selects the best technique at every stage (missing values, encoding, scaling, balancing, feature selection, and modeling) based on data-driven evaluation.
 
+🧠 Key Highlights
 
-Tools & Libraries Used
+🔁 Fully automated ML pipeline
 
-•	Python
+📊 Rich EDA & business-oriented visualizations
 
-•	Pandas
+🧪 Technique selection instead of hard-coding
 
-•	Matplotlib
+⚖️ Handles class imbalance
 
-•	Logging (for tracking execution)
+🏆 Compares multiple ML models
 
+📈 Uses ROC-AUC for model selection
 
- Dataset Description
+💾 Saves deployment-ready artifacts
 
+🗂️ Project Structure
+├── main.py
+├── Visualization.py
+├── missing_values.py
+├── variable_transformation_technique.py
+├── outliers_techniques.py
+├── cat_to_num_Techniques.py
+├── Feature_Selection_Techniques.py
+├── Data_Balancing.py
+├── Model_techniques.py
+├── log_file.py
+├── WA_Fn-UseC_-Telco-Customer-Churn.csv
+├── churn_artifacts.pkl
+├── scaler_path.pkl
+├── final_features.pkl
+└── README.md
 
-Each row represents a customer and includes:
+📊 Exploratory Data Analysis (EDA)
 
-•	Demographic information (Gender, Senior Citizen)
+The following visualizations are generated automatically:
 
-•	Account details (Tenure, Contract type, Payment method)
+Gender vs Churn
 
-•	Service usage (Internet service, Monthly charges)
+Churn Distribution
 
-•	Target variable: Churn (Yes / No)
+Tenure vs Churn
 
+Monthly Charges vs Churn
 
-Visualizations & Insights
+Senior Citizen & Gender vs Churn
 
-1. Customer Churn Distribution
+Internet Service vs Gender
 
-   Visualization: Bar Chart
+Contract Type vs Churn
 
-   Insight:
+Telecom Partner vs Churn
 
-     •	Majority of customers did not churn
+Payment Method vs Churn
 
-     •	A significant portion did churn, indicating a retention problem
+📌 These plots help understand customer behavior and churn drivers before modeling.
 
-   Business Meaning:
+🔄 Machine Learning Pipeline
+1️⃣ Data Loading & Preparation
 
-     Customer retention strategies are required to reduce churn rate.
+Reads Telco churn dataset
 
-<img width="640" height="480" alt="Churn distribution" src="https://github.com/user-attachments/assets/b9f58dc3-9a9b-48f1-8bbc-be1c7de00c6c" />
+Adds a synthetic telecom_partner feature
 
+Converts TotalCharges to numeric
 
+Encodes target variable (Churn: Yes → 1, No → 0)
 
+Train–test split (80/20)
 
- 2.Contract Type vs Churn
+2️⃣ Missing Value Handling
 
+Multiple imputation techniques are evaluated:
 
-   Visualization: Bar Chart (Crosstab)
+Mean
 
-   Insight:
+Median
 
-     •	Month-to-month contracts have the highest churn
+Mode
 
-     •	One-year and Two-year contracts show much lower churn
+End-of-Distribution
 
-   Business Meaning:
+Forward Fill / Backward Fill
 
-    Long-term contracts help improve customer retention.
+Random Sampling
 
-<img width="640" height="480" alt="contract vs churn" src="https://github.com/user-attachments/assets/db2bc9c7-9b34-42d5-bb4a-f4ea39ccb452" />
+✅ Best technique per column is selected automatically based on variance / missing reduction.
 
+3️⃣ Variable Transformation
 
+Numerical features are transformed using:
 
-3. Gender vs Churn
+Standard Scaling
 
+MinMax Scaling
 
-  Visualization: Bar Chart
+Robust Scaling
 
-  Insight:
+Log Transform
 
-   •	Churn behaviour is almost equal for both genders
+Power Transform
 
-   •	Gender is not a strong churn indicator
+Box-Cox
 
-  Business Meaning:
+Quantile Transform
 
-   Churn prevention strategies should focus on service factors rather than gender.
+📉 Transformation with minimum skewness is chosen per feature.
 
-<img width="640" height="480" alt="gender_vs_churn" src="https://github.com/user-attachments/assets/dd004052-1153-4d7b-97de-db7b57289238" />
+4️⃣ Outlier Handling
 
+Outliers are detected using IQR method and treated using:
 
+Winsorization
 
-4.Internet Service vs Gender
-   Visualization: Bar Chart (Crosstab)
+Robust Scaling
 
-   Insight:
+Log Transform
 
-    •	Fiber optic service has the highest number of customers
+No Treatment
 
-    •	Internet service usage is balanced across genders
+🎯 The method leaving the fewest outliers is selected.
 
-   Business Meaning:
+5️⃣ Categorical Encoding
 
-    Internet service adoption is not gender-biased.
+Categorical variables are encoded using:
 
-<img width="640" height="480" alt="internet services vs gender" src="https://github.com/user-attachments/assets/6f38b184-d1fa-4965-aaa8-89d158e5b5c9" />
+Label Encoding
 
+One-Hot Encoding
 
+Frequency Encoding
 
-5. Monthly Charges vs Churn
-     Visualization: Histogram
+Binary Encoding
 
-     Insight:
+Ordinal Encoding
 
-      •	Customers with higher monthly charges tend to churn more
+📌 Encoding is chosen based on feature dimensionality efficiency.
 
-      •	Lower charges show better retention
+6️⃣ Feature Selection
 
-     Business Meaning:
+Techniques evaluated:
 
-      High pricing may be a major reason for customer churn.
+Variance Threshold
 
-<img width="640" height="480" alt="monthly_charges vs churn" src="https://github.com/user-attachments/assets/119839d5-3921-4c65-bc55-94310f4fa8d8" />
+Correlation Filter
 
+SelectKBest
 
-6.Churn Among Senior Citizens by Gender
-    Visualization: Bar Chart
+RFE
 
-   Insight:
+Lasso
 
-     •	Senior citizens show a higher churn tendency
+Tree-based Selection
 
-    •	Gender difference among seniors is minimal
+🏆 The technique selecting optimal minimum features is applied.
+📁 Final selected features are saved as final_features.pkl.
 
-   Business Meaning:
+7️⃣ Data Balancing
 
-    Special retention offers may be needed for senior customers.
+Class imbalance is handled using:
 
-<img width="640" height="480" alt="senior gender vs churn" src="https://github.com/user-attachments/assets/9dc4de91-71b0-4239-b7a9-80fc2d782a9a" />
+No balancing
 
+Random Over Sampling
 
-7. Tenure vs Churn
-   Visualization: Histogram
+Random Under Sampling
 
-   Insight:
+SMOTE
 
-     •	Customers with low tenure (new customers) churn more
+SMOTE-Tomek
 
-     •	Long-tenure customers are more loyal
+SMOTE-ENN
 
-   Business Meaning:
+📊 Best method selected using F1-score (CV-based).
 
-     The first few months are critical for customer retention.
+8️⃣ Feature Scaling
 
-<img width="640" height="480" alt="Tenure vs churn" src="https://github.com/user-attachments/assets/d381ce5c-c15b-4b71-a6a3-c49d665770c7" />
+Scaling techniques compared:
 
+StandardScaler
 
+MinMaxScaler
 
+RobustScaler
 
+MaxAbsScaler
 
-8.TelecomPartner vs Churn Visualization: Grouped Bar Chart
+Normalizer
 
-   Insight:
+🏆 Best scaler chosen using cross-validated F1-score and saved as scaler_path.pkl.
 
-     • Jio shows the highest churn rate (~27.3%) — proportionally more customers are leaving.
+9️⃣ Model Training & Evaluation
 
-    • BSNL has the lowest churn rate (~25.2%) — relatively more stable customers.
+Models compared using ROC-AUC:
 
-    • Vodafone has the largest absolute number of churned customers (490) due to its bigger customer base.
+KNN
 
-    • Differences are modest (~2 percentage points) — verify statistical significance before strong conclusions.
+Naive Bayes
 
+Logistic Regression
 
-   Business Meaning:
+Decision Tree
 
+Random Forest
 
-     The provider a customer uses is associated with small but actionable differences in churn. Prioritize root-cause analysis for Jio to reduce its churn rate, and target Vodafone for volume-based interventions      (even modest rate improvements there yield larger customer retention gains).
+SVM
 
+XGBoost
 
+📈 ROC curves are plotted for all models.
 
-<img width="640" height="480" alt="telecom_partner_vs_churn" src="https://github.com/user-attachments/assets/f4d7a58a-de39-4b2d-9669-62b232382fde" />
+🔧 Hyperparameter Tuning
 
+Only the best performing model is tuned:
 
+Logistic Regression → GridSearchCV
 
-9.Payment Method vs Churn Visualization: Stacked Bar Chart
+Random Forest → GridSearchCV
 
-   Insight:
+🏆 Final Output
 
-     • Electronic check customers show the highest churn rate (~45%) — a large proportion of customers using this method leave the service.
+✅ Best trained model
 
-     • Mailed check users have a moderate churn rate (~19%) — lower than electronic check but higher than automatic methods.
+✅ Final feature list
 
-     • Bank transfer (automatic) and credit card (automatic) users exhibit the lowest churn rates (~15–16%) — indicating stronger customer retention.
+✅ Scaler
 
-     • Although total customer counts are similar across payment methods, churn likelihood varies significantly by payment type.
-
-   Business Meaning:
-
-     Payment method is a strong behavioral indicator of churn. Customers using manual payment methods, especially electronic checks, are more likely to churn. Encouraging migration to automatic payment methods (bank transfer or credit card) can materially reduce churn. Retention campaigns should prioritize electronic check users, as even small improvements in this group can yield meaningful reductions in overall churn.
-
-
-<img width="600" height="400" alt="paymentmethod vs churn" src="https://github.com/user-attachments/assets/8762488d-4f89-4f3c-830a-80dbb8cce9f2" />
+✅ ROC-AUC performance
 
 
 
