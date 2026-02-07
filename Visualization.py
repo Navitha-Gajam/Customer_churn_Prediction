@@ -10,6 +10,11 @@ from log_file import setup_logging
 logger = setup_logging('Visualization')
 
 
+import os
+
+PLOT_DIR = r"C:\Users\AUTODESIGN\Desktop\DataScience Projects\CustomerChurnPrediction\plots"
+os.makedirs(PLOT_DIR, exist_ok=True)
+
 
 def gender_vs_churn(df):
     try:
@@ -26,7 +31,10 @@ def gender_vs_churn(df):
 
         plt.legend(title="Churn")
         plt.tight_layout()
-        plt.show()
+        file_path = os.path.join(PLOT_DIR, "gender_vs_churn.png")
+        plt.savefig(file_path)
+        plt.close()
+        logger.info(f"Saved plot: {file_path}")
 
     except Exception as e:
         error_type, error_msg, error_line = sys.exc_info()
@@ -43,7 +51,10 @@ def churn_distribution(df):
         ax.set_title("Customer Churn Distribution")
         ax.bar_label(bars)
         plt.tight_layout()
-        plt.show()
+        file_path = os.path.join(PLOT_DIR, "churn_distribution.png")
+        plt.savefig(file_path)
+        plt.close()
+        logger.info(f"Saved plot: {file_path}")
     except Exception as e:
         error_type, error_msg, error_line = sys.exc_info()
         logger.info(f'error in line no :{error_line.tb_lineno}: due to {error_msg}')
@@ -59,7 +70,10 @@ def tenure_vs_churn(df):
         plt.ylabel("Customers")
         plt.title("Tenure vs Churn")
         plt.legend(["Churn Yes", "Churn No"])
-        plt.show()
+        file_path = os.path.join(PLOT_DIR, "tenure_vs_churn.png")
+        plt.savefig(file_path)
+        plt.close()
+        logger.info(f"Saved plot: {file_path}")
     except Exception as e:
         error_type, error_msg, error_line = sys.exc_info()
         logger.info(f'error in line no :{error_line.tb_lineno}: due to {error_msg}')
@@ -76,7 +90,10 @@ def monthly_charges_vs_churn(df):
         plt.ylabel("Customers")
         plt.title("Monthly Charges vs Churn")
         plt.legend(["Churn Yes", "Churn No"])
-        plt.show()
+        file_path = os.path.join(PLOT_DIR, "monthly_charges_vs_churn.png")
+        plt.savefig(file_path)
+        plt.close()
+        logger.info(f"Saved plot: {file_path}")
     except Exception as e:
         error_type, error_msg, error_line = sys.exc_info()
         logger.info(f'error in line no :{error_line.tb_lineno}: due to {error_msg}')
@@ -93,7 +110,10 @@ def Senior_gender_vs_churn(df):
         for container in ax.containers:
             ax.bar_label(container)
         plt.tight_layout()
-        plt.show()
+        file_path = os.path.join(PLOT_DIR, "Senior_gender_vs_churn.png")
+        plt.savefig(file_path)
+        plt.close()
+        logger.info(f"Saved plot: {file_path}")
     except Exception as e:
         error_type, error_msg, error_line = sys.exc_info()
         logger.info(f'error in line no :{error_line.tb_lineno}: due to {error_msg}')
@@ -112,7 +132,10 @@ def internet_service_vs_gender(df):
     for container in ax.containers:
         ax.bar_label(container, label_type='edge')
     plt.tight_layout()
-    plt.show()
+    file_path = os.path.join(PLOT_DIR, "internet_service_vs_gender.png")
+    plt.savefig(file_path)
+    plt.close()
+    logger.info(f"Saved plot: {file_path}")
    except Exception as e:
        error_type, error_msg, error_line = sys.exc_info()
        logger.info(f'error in line no :{error_line.tb_lineno}: due to {error_msg}')
@@ -132,7 +155,10 @@ def contract_vs_churn(df):
     for container in ax.containers:
         ax.bar_label(container, label_type='edge')
     plt.tight_layout()
-    plt.show()
+    file_path = os.path.join(PLOT_DIR, "contract_vs_churn.png")
+    plt.savefig(file_path)
+    plt.close()
+    logger.info(f"Saved plot: {file_path}")
   except Exception as e:
       error_type, error_msg, error_line = sys.exc_info()
       logger.info(f'error in line no :{error_line.tb_lineno}: due to {error_msg}')
@@ -146,12 +172,47 @@ def telecom_partner_vs_churn(df):
         plt.xlabel("TelecomPartner Type")
         plt.ylabel("Number of Customers")
         plt.title("TelecomPartner vs Churn")
+        plt.legend(title="Churn")
         for container in ax.containers:
             ax.bar_label(container, label_type='edge')
-        plt.legend(title="Churn")
+
         plt.tight_layout()
-        plt.show()
+        file_path = os.path.join(PLOT_DIR, "telecom_partner_vs_churn.png")
+        plt.savefig(file_path)
+        plt.close()
+        logger.info(f"Saved plot: {file_path}")
   except Exception as e:
       error_type, error_msg, error_line = sys.exc_info()
       logger.info(f'error in line no :{error_line.tb_lineno}: due to {error_msg}')
 
+def PaymentMethod_vs_churn(df):
+  try:
+      logger.info("Plotting PaymentMethod vs Churn (Stacked)")
+
+      payment_churn = pd.crosstab(df['Churn'], df['PaymentMethod'])
+      logger.info(f'PaymentMethod vs Churn Crosstab:\n{payment_churn}')
+
+      ax = payment_churn.plot(
+          kind='bar',
+          stacked=True,
+          figsize=(6, 4)
+      )
+
+      plt.xlabel("Churn")
+      plt.ylabel("Number of Customers")
+      plt.title(" Payment Method vs Churn")
+      plt.legend(title="PaymentMethod")
+      plt.xticks(rotation=0)
+
+      # Optional: add total labels on top
+      for i, total in enumerate(payment_churn.sum(axis=1)):
+          ax.text(i, total + 50, total, ha='center', fontweight='bold')
+
+      plt.tight_layout()
+      file_path = os.path.join(PLOT_DIR, "PaymentMethod_vs_churn.png")
+      plt.savefig(file_path)
+      plt.close()
+      logger.info(f"Saved plot: {file_path}")
+  except Exception as e:
+      error_type, error_msg, error_line = sys.exc_info()
+      logger.info(f'error in line no :{error_line.tb_lineno}: due to {error_msg}')
