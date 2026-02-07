@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Churn Prediction</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f9;
+        }
+        .container {
+            width: 55%;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            margin-top: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #ccc;
+        }
+        h1 {
+            text-align: center;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0 15px 0;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        .yes {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .no {
+            background: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background: #f8d7da;
+            padding: 10px;
+            margin-bottom: 15px;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📊 Customer Churn Prediction</h1>
+
+    {% if error %}
+        <div class="error">⚠ {{ error }}</div>
+    {% endif %}
+
+    <form method="POST">
+
+        {% for col in num_cols %}
+            <label>{{ col }}</label>
+            <input type="number" step="any" name="{{ col }}" required>
+        {% endfor %}
+
+        {% for col in cat_cols %}
+            <label>{{ col }}</label>
+            <select name="{{ col }}" required>
+                {% for val in category_values[col] %}
+                    <option value="{{ val }}">{{ val }}</option>
+                {% endfor %}
+            </select>
+        {% endfor %}
+
+        <button type="submit">Predict Churn</button>
+    </form>
+
+    {% if result %}
+        <div class="result {% if result.decision == 'WILL churn' %}yes{% else %}no{% endif %}">
+            🔮 <b>Prediction:</b> Customer {{ result.decision }} <br>
+
+        </div>
+    {% endif %}
+
+
+
+</div>
+
+</body>
+</html>
